@@ -114,7 +114,7 @@ public class themain extends JFrame {
 
 
 
-    private void initComponents()  {
+    private void initComponents()  {//
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents  @formatter:off
         ResourceBundle bundle = ResourceBundle.getBundle("six");
         label3 = new JLabel();
