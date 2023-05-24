@@ -41,22 +41,6 @@ public class managepage extends JFrame {
         new back_book(a).setVisible(true);
     }
 
-    private void button4() {
-        // TODO add your code here
-    }
-
-    private void button5() {
-        // TODO add your code here
-    }
-
-   /*private void button4() {
-        // TODO add your code here
-    }
-
-    private void button5() {
-        // TODO add your code here
-    }*/
-
     private void initComponents(String a) {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents  @formatter:off
         ResourceBundle bundle = ResourceBundle.getBundle("six");
@@ -179,8 +163,7 @@ public class managepage extends JFrame {
             button4.setFont(new Font("\u6977\u4f53", Font.BOLD, 16));
             button4.setBorderPainted(false);
             button4.addActionListener(e -> {
-			button4();
-			button4();
+			button4(a);
 		});
             panel4.add(button4, new GridBagConstraints(1, 0, 1, 1, 0.0, 0.0,
                 GridBagConstraints.CENTER, GridBagConstraints.BOTH,
@@ -209,7 +192,7 @@ public class managepage extends JFrame {
             button5.setText(bundle.getString("button5.text_2"));
             button5.setFont(new Font("\u6977\u4f53", Font.BOLD, 16));
             button5.setBorderPainted(false);
-            button5.addActionListener(e -> button5());
+            button5.addActionListener(e -> button5(a));
             panel5.add(button5, new GridBagConstraints(1, 0, 1, 1, 0.0, 0.0,
                 GridBagConstraints.CENTER, GridBagConstraints.BOTH,
                 new Insets(0, 0, 0, 0), 0, 0));

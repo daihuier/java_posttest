@@ -84,7 +84,8 @@ public class back_book extends JFrame {
         String book_name=textField1.getText();//获得还书的书名
         // String book_autor=textField2.getText();
         PreparedStatement stmt = null;
-        String sql="SELECT theborrow.student_id,book.book_id,book.book_name,book.book_author,book.book_publish,theborrow.back_time FROM theborrow inner join  book on  theborrow.book_id = book.book_id + WHERE student_id = ? and book_name=?;";
+        String sql="SELECT theborrow.student_id,book.book_id,book.book_name,book.book_author,book.book_publish,theborrow.back_time  FROM theborrow inner join  book on  theborrow.book_id = book.book_id  WHERE student_id = ? and book_name=?;";
+
         stmt = test.database_conext.getConnection().prepareStatement(sql);
         stmt.setString(1,a);
         stmt.setString(2,book_name);

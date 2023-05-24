@@ -30,10 +30,6 @@ public class manage_set extends JFrame  {
         new del_manage().setVisible(true);
     }
 
-    private void button3() {//返回bosspage
-        // TODO add your code here
-        new theBossPage(a).setVisible(true);
-    }
 
     public void initComponents() {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents  @formatter:off
@@ -119,7 +115,6 @@ public class manage_set extends JFrame  {
         //---- button3 ----
         button3.setText(bundle.getString("button3.text_3"));
         button3.setFont(new Font("Microsoft YaHei UI", Font.BOLD, 14));
-        button3.addActionListener(e -> button3());
         contentPane.add(button3, new GridBagConstraints(2, 7, 1, 1, 0.0, 0.0,
             GridBagConstraints.CENTER, GridBagConstraints.BOTH,
             new Insets(0, 0, 5, 5), 0, 0));
