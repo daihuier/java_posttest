@@ -5,7 +5,6 @@
 package qimoxiangmu;
 
 import java.awt.*;
-import java.awt.event.*;
 import java.util.*;
 import javax.swing.*;
 
@@ -17,9 +16,9 @@ public class managepage extends JFrame {
         initComponents(a);
     }
 
-    private void manageset(ActionEvent e) {
-        // TODO add your code here
-    }
+//    private void manageset(ActionEvent e) {
+//        // TODO add your code here
+//    }
 
     private void button2() {
         // TODO add your code here
@@ -40,6 +39,14 @@ public class managepage extends JFrame {
     private void button5(String a) {
         // TODO add your code here
         new back_book(a).setVisible(true);
+    }
+
+    private void button4() {
+        // TODO add your code here
+    }
+
+    private void button5() {
+        // TODO add your code here
     }
 
    /*private void button4() {
@@ -171,9 +178,10 @@ public class managepage extends JFrame {
             button4.setText(bundle.getString("button4.text_2"));
             button4.setFont(new Font("\u6977\u4f53", Font.BOLD, 16));
             button4.setBorderPainted(false);
-            button4.addActionListener(e ->
-			button4(a)
-			);
+            button4.addActionListener(e -> {
+			button4();
+			button4();
+		});
             panel4.add(button4, new GridBagConstraints(1, 0, 1, 1, 0.0, 0.0,
                 GridBagConstraints.CENTER, GridBagConstraints.BOTH,
                 new Insets(0, 0, 0, 0), 0, 0));
@@ -201,7 +209,7 @@ public class managepage extends JFrame {
             button5.setText(bundle.getString("button5.text_2"));
             button5.setFont(new Font("\u6977\u4f53", Font.BOLD, 16));
             button5.setBorderPainted(false);
-            button5.addActionListener(e -> button5(a));
+            button5.addActionListener(e -> button5());
             panel5.add(button5, new GridBagConstraints(1, 0, 1, 1, 0.0, 0.0,
                 GridBagConstraints.CENTER, GridBagConstraints.BOTH,
                 new Insets(0, 0, 0, 0), 0, 0));

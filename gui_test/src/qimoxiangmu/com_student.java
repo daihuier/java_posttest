@@ -11,7 +11,7 @@ import javax.swing.*;
 /**
  * @author 86155
  */
-public class com_student extends JFrame {
+public class com_student extends JFrame {//学生使用界面
     public com_student(String a) {
         initComponents(a);
     }

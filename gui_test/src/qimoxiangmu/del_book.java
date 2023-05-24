@@ -34,13 +34,13 @@ public class del_book extends JFrame {
         while (true) {
             if (rs.next()) {
                 if (rs.getInt("book_nowsum")!=rs.getInt("book_sum")) {
-                    JOptionPane.showMessageDialog(null, "无法删除，有书本未归还");
+                    JOptionPane.showMessageDialog(null, "无法删除，有书本未归还");//有书本没有归还不许删除
                     break;
                 }
                 else
                 {
                     Object[] options = {"确认删除", "取消删除"};
-                    int result = JOptionPane.showOptionDialog(
+                    int result = JOptionPane.showOptionDialog(//弹出选择对话框
                             null,
                             "你确定要删除，书号为："+rs.getString("book_id")+" 书名为："+rs.getString("book_name")+" 作者为："+rs.getString("book_author")+" 出版社"+rs.getString("book_publish")+"的书吗？",
                             "删除书籍",

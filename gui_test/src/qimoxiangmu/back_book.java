@@ -1,8 +1,6 @@
-/*
+package qimoxiangmu;/*
  * Created by JFormDesigner on Sat Mar 25 15:50:52 CST 2023
  */
-
-package qimoxiangmu;
 
 import test.database_conext;
 
@@ -21,40 +19,6 @@ import javax.swing.table.*;
 public class back_book extends JFrame {
     public back_book(String a) {
         initComponents(a);
-    }
-
-    private void button1(String a) throws SQLException {
-        // TODO add your code here
-        String book_name=textField1.getText();
-        // String book_autor=textField2.getText();
-        PreparedStatement stmt = null;
-        String sql="SELECT book.book_id,book.book_name,book.book_author,book.book_publish,theborrow.back_time FROM theborrow,  book WHERE theborrow.student_id = ? AND theborrow.book_id = book.book_id;";
-        stmt = test.database_conext.getConnection().prepareStatement(sql);
-        stmt.setString(1,a);
-        //stmt.setString(2,book_autor);
-        ResultSet rs=null;
-        rs=stmt.executeQuery();
-        // List<List<Object>> data = new ArrayList<>();
-        int flag=0;
-        while (true)
-        {
-            if (rs.next())
-            {
-                JOptionPane.showMessageDialog(null, "查到书籍");
-                flag=1;
-                DefaultTableModel model = (DefaultTableModel) table1.getModel();//获取表格的数据模型，即 DefaultTableModel 对象
-                Object[] data = {rs.getString("book.book_id"),rs.getString("book.book_name"),rs.getString("book.book_author"),rs.getString("book.book_publish"),rs.getDate("theborrow.back_time")};
-                model.addRow(data);
-            }
-            else {
-                if (flag!=1)
-                JOptionPane.showMessageDialog(null, "没查到书籍");
-                break;
-            }
-
-        }
-        rs.close();
-        stmt.close();
     }
 
     private void button2(String a) throws SQLException {
@@ -114,6 +78,43 @@ public class back_book extends JFrame {
         rs.close();
         stmt.close();
     }
+
+    private void button1(String a) throws SQLException {
+        // TODO add your code here
+        String book_name=textField1.getText();//获得还书的书名
+        // String book_autor=textField2.getText();
+        PreparedStatement stmt = null;
+        String sql="SELECT theborrow.student_id,book.book_id,book.book_name,book.book_author,book.book_publish,theborrow.back_time FROM theborrow inner join  book on  theborrow.book_id = book.book_id + WHERE student_id = ? and book_name=?;";
+        stmt = test.database_conext.getConnection().prepareStatement(sql);
+        stmt.setString(1,a);
+        stmt.setString(2,book_name);
+        //stmt.setString(2,book_autor);
+        ResultSet rs=null;
+        rs=stmt.executeQuery();
+        // List<List<Object>> data = new ArrayList<>();
+        int flag=0;
+        while (true)
+        {
+            if (rs.next())
+            {
+                JOptionPane.showMessageDialog(null, "查到书籍");
+                flag=1;
+                DefaultTableModel model = (DefaultTableModel) table1.getModel();//获取表格的数据模型，即 DefaultTableModel 对象
+                Object[] data = {rs.getString("book.book_id"),rs.getString("book.book_name"),rs.getString("book.book_author"),rs.getString("book.book_publish"),rs.getDate("theborrow.back_time")};
+                model.addRow(data);
+            }
+            else {
+                if (flag!=1)
+                    JOptionPane.showMessageDialog(null, "没查到书籍");
+                break;
+            }
+
+        }
+        rs.close();
+        stmt.close();
+    }
+
+
     private void initComponents(String a) {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents  @formatter:off
         ResourceBundle bundle = ResourceBundle.getBundle("six");

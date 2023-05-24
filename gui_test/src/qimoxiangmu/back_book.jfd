@@ -33,6 +33,9 @@ new FormModel {
 				name: "button1"
 				"text": new FormMessage( null, "button1.text_8" )
 				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "button1", false ) )
+				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "button1", false ) )
+				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "button1", false ) )
+				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "button1", false ) )
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
 				"gridx": 4
 				"gridy": 2

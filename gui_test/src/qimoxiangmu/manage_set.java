@@ -137,6 +137,5 @@ public class manage_set extends JFrame  {
     private JLabel label3;
     private JButton delete_manage;
     private JButton button3;
-    private String a;//保存用户的id
     // JFormDesigner - End of variables declaration  //GEN-END:variables  @formatter:on
 }

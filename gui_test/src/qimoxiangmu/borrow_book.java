@@ -19,6 +19,7 @@ import javax.swing.table.*;
  * @author 86155
  */
 public class borrow_book extends JFrame  {
+
     public borrow_book( String a) {
         initComponents(a);
     }
@@ -42,8 +43,8 @@ public class borrow_book extends JFrame  {
             {
                 flag=1;
                 DefaultTableModel model = (DefaultTableModel) table1.getModel();//获取表格的数据模型，即 DefaultTableModel 对象
-                Object[] data = {rs.getString("book_id"),rs.getString("book_name"),rs.getString("book_author"),rs.getString("book_publish"),rs.getInt("book_nowsum"),
-                        new JButton("选择按钮")};
+               Object[] data = {rs.getString("book_id"),rs.getString("book_name"),rs.getString("book_author"),rs.getString("book_publish"),rs.getInt("book_nowsum"),
+                /*new JButton("选择按钮")*/};
                 model.addRow(data);
             }
             else {
@@ -58,10 +59,10 @@ public class borrow_book extends JFrame  {
 
     }
     @Test
-    private void use_mysql(String a) throws SQLException {
+    private void use_mysql(String a) throws SQLException {//数据库借书
         String sql="select *from book where book_id=?";
-        String sql2="update book set book_nowsum =book_nowsum-1 where book_id=?;";
-        String sql3="insert into theborrow values(?,?,NOW(),DATE_ADD(NOW(), INTERVAL ? DAY))";
+        String sql2="update book set book_nowsum =book_nowsum-1 where book_id=?;";//借书减一
+        String sql3="insert into theborrow values(?,?,NOW(),DATE_ADD(NOW(), INTERVAL ? DAY))";//更新借书列表
         //; insert to book values('22',?,NOW(),DATE_ADD(NOW(), INTERVAL ? DAY));
         PreparedStatement stmt = null;
         stmt = test.database_conext.getConnection().prepareStatement(sql);
@@ -78,10 +79,10 @@ public class borrow_book extends JFrame  {
                 else
                 {//弹出一个输入框
 
-                    int result = Integer.parseInt(JOptionPane.showInputDialog(null,"请输入你要借阅的天数"));
+                    int result = Integer.parseInt(JOptionPane.showInputDialog(null,"请输入你要借阅的天数"));//对话框中读取借书天数
                         PreparedStatement stmt2 = null;
                         stmt2 = test.database_conext.getConnection().prepareStatement(sql2);
-                       stmt2.setString(1,book_id);
+                       stmt2.setString(1,book_id);//上面已经记录
                     PreparedStatement stmt3 = null;
                     stmt3 = database_conext.getConnection().prepareStatement(sql3);
                     stmt3.setString(1,a);
@@ -123,7 +124,7 @@ public class borrow_book extends JFrame  {
     }*/
 
 
-
+@Test
     private void initComponents( String a) {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents  @formatter:off
         ResourceBundle bundle = ResourceBundle.getBundle("six");
