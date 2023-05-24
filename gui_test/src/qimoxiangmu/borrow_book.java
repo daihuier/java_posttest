@@ -4,6 +4,7 @@
 
 package qimoxiangmu;
 
+import org.junit.Test;
 import test.database_conext;
 
 import java.awt.*;
@@ -22,9 +23,9 @@ public class borrow_book extends JFrame  {
         initComponents(a);
     }
 
-    private void button1() throws SQLException {
+    private void button1() throws SQLException {//书籍查询
         // TODO add your code here
-        String book_name=textField1.getText();
+        String book_name=textField1.getText();//获得输入的书名
        // String book_autor=textField2.getText();
         PreparedStatement stmt = null;
         String sql="select *from book where book_name=?";
@@ -47,7 +48,7 @@ public class borrow_book extends JFrame  {
             }
             else {
                 if (flag!=1)
-                JOptionPane.showMessageDialog(null, "没查到书籍");
+                JOptionPane.showMessageDialog(null, "没查到书籍");//如果查不到书籍就弹出对话框
                 break;
             }
 
@@ -56,6 +57,7 @@ public class borrow_book extends JFrame  {
         stmt.close();
 
     }
+    @Test
     private void use_mysql(String a) throws SQLException {
         String sql="select *from book where book_id=?";
         String sql2="update book set book_nowsum =book_nowsum-1 where book_id=?;";
@@ -64,12 +66,12 @@ public class borrow_book extends JFrame  {
         PreparedStatement stmt = null;
         stmt = test.database_conext.getConnection().prepareStatement(sql);
         String book_id=textField2.getText();
-        stmt.setString(1,book_id);
+        stmt.setString(1,book_id);//从文本框内读取所借书的名字，赋给bookid
         ResultSet rs=null;
         rs=stmt.executeQuery();
         while (true) {
             if (rs.next()) {
-                if (rs.getInt("book_nowsum")==0) {
+                if (rs.getInt("book_nowsum")==0) {//读取书的库存，如果不够提示库存不足的提示框
                     JOptionPane.showMessageDialog(null, "无法借阅，库存不足");
                     break;
                 }
